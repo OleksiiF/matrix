@@ -46,6 +46,32 @@ class Matrix:
 
         return result
 
+    def _get_determinant(self, matrix: list) -> int:
+        determinant = 0
+
+        if len(matrix) > 1:
+            for position, element in enumerate(matrix[0]):
+                minor_matrix: list = [
+                    row[:position] + row[position + 1:] for row in matrix[1:]
+                ]
+                minor_determinant: int = element * self._get_determinant(minor_matrix)
+                determinant += minor_determinant if (
+                        position % 2 == 0 or position == 0
+                ) else -minor_determinant
+
+        else:
+            determinant: int = matrix[0][0]
+
+        return determinant
+
+    def get_determinants(self):
+        result = []
+
+        for matrix in self.all_matrices:
+            result.append(self._get_determinant(matrix))
+
+        return result
+
     def _get_multiplication(self, matrix_a, matrix_b):
         rows_a = len(matrix_a)
         rows_b = len(matrix_b)

@@ -13,6 +13,7 @@ def personal_print(obj_for_print):
 def main():
     matrices_sizes = [[4,4], [4,4]]
     matrix_obj = Matrix(matrices_sizes)
+    print(matrix_obj.get_determinants())
     personal_print(matrix_obj.all_matrices)
     personal_print(matrix_obj.get_the_transposed_matrix())
     personal_print(matrix_obj.get_multiplication_result(10))
