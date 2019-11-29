@@ -11,13 +11,14 @@ def personal_print(obj_for_print):
 
 
 def main():
-    matrices_sizes = [[4,4], [4,4]]
+    matrices_sizes = [[4,4], [4,4], [4,4], [4,4], [4,4], [4,4], [4,4]]
     matrix_obj = Matrix(matrices_sizes)
-    print(matrix_obj.get_determinants())
     personal_print(matrix_obj.all_matrices)
+    print(matrix_obj.get_determinants())
     personal_print(matrix_obj.get_the_transposed_matrix())
     personal_print(matrix_obj.get_multiplication_result(10))
-
+    personal_print(matrix_obj.get_multiplication_result())
+    personal_print(matrix_obj.get_inverse_matrix())
 
 if __name__ == '__main__':
     main()
